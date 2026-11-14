@@ -76,8 +76,9 @@ def apply_standardizer(X, mean, std):
 def add_bias_column(X):
     return np.column_stack([np.ones(X.shape[0]), X])
 
-# Step 10 - make_shuffled_indices (not yet solved)
-# TODO: implement
+# Step 10 - make_shuffled_indices
+def make_shuffled_indices(n_samples, seed):
+    return np.random.RandomState(seed).permutation(n_samples)
 
 # Step 11 - partition_indices (not yet solved)
 # TODO: implement
