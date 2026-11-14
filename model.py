@@ -47,8 +47,18 @@ def make_ratio_feature(numerator, denominator, eps=1e-8):
 def append_column(X, col):
     return np.column_stack((X, col))
 
-# Step 6 - one_hot_encode (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode
+import numpy as np
+
+def one_hot_encode(labels: np.ndarray) -> np.ndarray:
+    sorted_labels = np.unique(labels)
+    sorted_labels.sort()
+    for i, label in enumerate(sorted_labels):
+        labels[labels == label] = i
+    X = np.zeros((len(labels), len(sorted_labels)))
+    for i, label in enumerate(labels):
+        X[i][int(label)] = 1
+    return X
 
 # Step 7 - fit_standardizer (not yet solved)
 # TODO: implement
