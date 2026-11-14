@@ -84,8 +84,11 @@ def make_shuffled_indices(n_samples, seed):
 def partition_indices(indices, train_ratio, val_ratio):
     return np.split(indices, [int(len(indices) * train_ratio), int(len(indices) * (train_ratio + val_ratio))])
 
-# Step 12 - subset_xy (not yet solved)
-# TODO: implement
+# Step 12 - subset_xy
+def subset_xy(X, y, indices):
+    return (X[indices], y[indices])
+    # TODO: Select the rows of X and y at the given indices.
+    pass
 
 # Step 13 - ols_fit (not yet solved)
 # TODO: implement
