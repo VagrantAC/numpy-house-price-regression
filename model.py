@@ -68,8 +68,9 @@ def fit_standardizer(X: np.ndarray):
     std[std == 0] = 1.0
     return (X.mean(axis=0), std)
 
-# Step 8 - apply_standardizer (not yet solved)
-# TODO: implement
+# Step 8 - apply_standardizer
+def apply_standardizer(X, mean, std):
+    return (X - mean) / std
 
 # Step 9 - add_bias_column (not yet solved)
 # TODO: implement
