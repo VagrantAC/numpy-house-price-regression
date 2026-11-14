@@ -60,8 +60,13 @@ def one_hot_encode(labels: np.ndarray) -> np.ndarray:
         X[i][int(label)] = 1
     return X
 
-# Step 7 - fit_standardizer (not yet solved)
-# TODO: implement
+# Step 7 - fit_standardizer
+import numpy as np
+
+def fit_standardizer(X: np.ndarray):
+    std = X.std(axis=0)
+    std[std == 0] = 1.0
+    return (X.mean(axis=0), std)
 
 # Step 8 - apply_standardizer (not yet solved)
 # TODO: implement
