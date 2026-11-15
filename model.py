@@ -97,8 +97,9 @@ def ols_fit(X, y):
     theta = np.linalg.solve(A, b)
     return theta
 
-# Step 14 - ols_predict (not yet solved)
-# TODO: implement
+# Step 14 - ols_predict
+def ols_predict(X, theta):
+    return X @ theta.T
 
 # Step 15 - mean_absolute_error (not yet solved)
 # TODO: implement
