@@ -156,8 +156,14 @@ def prepare_cleaned_features(X, iqr_k=1.5):
 
     return clip_columns(X, lower_bounds,upper_bounds)
 
-# Step 20 - assemble_feature_matrix (not yet solved)
-# TODO: implement
+# Step 20 - assemble_feature_matrix
+def assemble_feature_matrix(X_num, ratio_num_idx, ratio_den_idx, cat_labels=None):
+    ratio_feature = make_ratio_feature(X_num[:, ratio_num_idx], X_num[:, ratio_den_idx])
+    X = append_column(X_num, ratio_feature)
+    if cat_labels is not None:
+        # print("One-hot encoding categorical labels...", one_hot_encode(cat_labels))
+        X = append_column(X, one_hot_encode(cat_labels))
+    return X
 
 # Step 21 - make_train_val_test (not yet solved)
 # TODO: implement
