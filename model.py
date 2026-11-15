@@ -165,8 +165,22 @@ def assemble_feature_matrix(X_num, ratio_num_idx, ratio_den_idx, cat_labels=None
         X = append_column(X, one_hot_encode(cat_labels))
     return X
 
-# Step 21 - make_train_val_test (not yet solved)
-# TODO: implement
+# Step 21 - make_train_val_test
+def make_train_val_test(X, y, train_ratio, val_ratio, seed):
+    indices = make_shuffled_indices(X.shape[0], seed)
+    part_indices = partition_indices(indices, train_ratio, val_ratio)
+    # print(part_indices)
+    X_train, y_train = subset_xy(X, y, part_indices[0])
+    X_val, y_val = subset_xy(X, y, part_indices[1])
+    X_test, y_test = subset_xy(X, y, part_indices[2])
+    return {
+        "X_train": X_train,
+        "y_train": y_train,
+        "X_val": X_val,
+        "y_val": y_val,
+        "X_test": X_test,
+        "y_test": y_test,
+    }
 
 # Step 22 - standardize_and_add_bias (not yet solved)
 # TODO: implement
