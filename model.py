@@ -90,8 +90,12 @@ def subset_xy(X, y, indices):
     # TODO: Select the rows of X and y at the given indices.
     pass
 
-# Step 13 - ols_fit (not yet solved)
-# TODO: implement
+# Step 13 - ols_fit
+def ols_fit(X, y):
+    A = X.T @ X
+    b = X.T @ y
+    theta = np.linalg.solve(A, b)
+    return theta
 
 # Step 14 - ols_predict (not yet solved)
 # TODO: implement
